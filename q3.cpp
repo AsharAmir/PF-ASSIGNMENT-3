@@ -2,7 +2,12 @@
 #include <iomanip>
 using namespace std;
 
+/* MUHAMMAD ASHHAR AMIR
+I222420 NUCES ISB
+SE B*/
+
 double calculated, value;
+//hardcoding values for conversion using if statements 
 double convert(string from, string to){
     if(from == "fl .oz" && to == "ml"){
         calculated = value * 29.57;
@@ -50,11 +55,14 @@ double convert(string from, string to){
         
 }
 
+//error prompt
 string err(string err){
     cout << err;
     return err;
 }
 
+//using a bool to check if the conversion is being done to appropriate units
+//otherwise returning false
 bool check(string from, string to){
     if((from == "fl .oz" || from == "gal") && (to == "ml" || to == "l")){
         // convert(from, to);
@@ -70,7 +78,9 @@ bool check(string from, string to){
     }
     
 }   
-
+//main
+// getting userInputs 
+// getting the values
 int main(){
     string from, to;
     cout << "Convert from (fl. oz, gal, oz, lb, in, ft, mi): " << endl;
@@ -80,10 +90,10 @@ int main(){
     cout << "Value: " << endl;
     cin >> value;
     //check(from, to);
-    if ((check(from, to)) == true){
-        cout << value << " " << from << " = " << fixed <<  convert(from, to) << " " << to;
+    if ((check(from, to)) == true){ // validating if appropriate conversion
+        cout << value << " " << from << " = " << fixed <<  convert(from, to) << " " << to; //printing final result
     }else{
-        err("invalid conversion");
+        err("invalid conversion"); //raising error using our func
     }
     
 }
